@@ -1,9 +1,30 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.7">
   <diagram name="Page-1" id="IOlUqgN34CFs__VlVtMe">
-    <mxGraphModel>
+    <mxGraphModel dx="2276" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="title" value="í ½í³˜ Surrogate Key Example â€“ Dim_Agent with SCD + Fact_Sales" style="text;html=1;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="20" width="550" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dim_agent" value="Dim_Agent (SCD)" style="swimlane;fillColor=#dae8fc;rounded=1;shadow=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="-100" y="100" width="280" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="agent_fields" value="&lt;b&gt;AgentID: 101&lt;/b&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;AgentNumber: A123&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Name: John Smith&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Region: West&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;StartDate: 2023-01-01&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;EndDate: 2023-07-31&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;AgentID: 102&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;b&gt;AgentNumber: A123&amp;nbsp;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Name: John Smith&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;Region:&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;East StartDate: 2023-08-01&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;EndDate: NULL&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=12;fillColor=#cce5ff;strokeColor=#36393d;gradientColor=default;gradientDirection=radial;fontColor=light-dark(#fcfcfc, #ededed);" vertex="1" parent="dim_agent">
+          <mxGeometry y="20" width="280" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="fact_sales" value="Fact_Sales" style="swimlane;fillColor=#fff2cc;rounded=1;shadow=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="100" width="300" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="sales_fields" value="SaleID: 9001&amp;nbsp;&lt;div&gt;&lt;b&gt;AgentID: 101&amp;nbsp;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Date: 2023-03-10&amp;nbsp;&lt;/div&gt;&lt;div&gt;Amount: $1,000&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;SaleID: 9002&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;b&gt;AgentID: 102&amp;nbsp;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Date: 2023-08-03&amp;nbsp;&lt;/div&gt;&lt;div&gt;Amount: $2,500&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fontSize=12;fillColor=#fa6800;strokeColor=#C73500;fontColor=light-dark(#f7f7f7, #ededed);gradientColor=default;gradientDirection=radial;" vertex="1" parent="fact_sales">
+          <mxGeometry y="20" width="300" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow" style="endArrow=block;html=1;" edge="1" parent="1" source="dim_agent" target="fact_sales">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="summary" value="Summary: This example shows how surrogate keys (e.g., AgentID) allow us to track historical changes in dimension attributes â€” such as an agent moving from one region to another â€” without overwriting past data. Each version gets a unique AgentID, and the Fact_Sales table references the appropriate version based on the transaction date. This ensures accurate, time-aware reporting and supports slowly changing dimensions (SCD Type 2)." style="shape=note;whiteSpace=wrap;fillColor=#0050ef;fontSize=14;strokeColor=none;fontColor=#ffffff;gradientColor=default;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-110" y="380" width="760" height="140" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
