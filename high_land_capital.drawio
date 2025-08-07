@@ -1,23 +1,23 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="28.0.7">
   <diagram name="Page-1" id="VXhfAvBmTkCyl4q7ma2g">
-    <mxGraphModel dx="1426" dy="1825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1426" dy="1541" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="2344" pageHeight="816" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="legend" value="Legend: í ½í¿¦ Dimension Table í ½í¿¨ Fact Table í ½í´ Derived Fact (Dashed Arrow)" style="shape=note;whiteSpace=wrap;fillColor=#ffffff;fontSize=11;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="5" y="-30" width="245" height="100" as="geometry" />
+          <mxGeometry x="70" y="-30" width="245" height="100" as="geometry" />
         </mxCell>
         <mxCell id="dim_agent" value="Dim_Agent í ½í³‡&#xa;â€¢ AgentID (PK)&#xa;â€¢ Name&#xa;â€¢ Region" style="rounded=1;shadow=1;fillColor=#0050ef;whiteSpace=wrap;fontSize=12;strokeColor=#001DBC;opacity=60;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="80" y="160" width="180" height="80" as="geometry" />
+          <mxGeometry x="140" y="150" width="180" height="80" as="geometry" />
         </mxCell>
         <mxCell id="dim_client" value="Dim_Client í ½í±¤&#xa;â€¢ ClientID (PK)&#xa;â€¢ FullName&#xa;â€¢ State" style="rounded=1;shadow=1;fillColor=#0050ef;whiteSpace=wrap;fontSize=12;strokeColor=#001DBC;opacity=60;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="80" y="250" width="180" height="80" as="geometry" />
+          <mxGeometry x="140" y="250" width="180" height="80" as="geometry" />
         </mxCell>
         <mxCell id="dim_policy" value="Dim_Policy í ½í³„&#xa;â€¢ PolicyID (PK)&#xa;â€¢ ProductLine&#xa;â€¢ Type" style="rounded=1;shadow=1;fillColor=#0050ef;whiteSpace=wrap;fontSize=12;strokeColor=#001DBC;opacity=60;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="80" y="340" width="180" height="80" as="geometry" />
+          <mxGeometry x="140" y="350" width="180" height="80" as="geometry" />
         </mxCell>
         <mxCell id="dim_channel" value="Dim_Channel í ½í»°&#xa;â€¢ ChannelID (PK)&#xa;â€¢ ChannelName" style="rounded=1;shadow=1;fillColor=#0050ef;whiteSpace=wrap;fontSize=12;strokeColor=#001DBC;opacity=60;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="80" y="430" width="180" height="60" as="geometry" />
+          <mxGeometry x="140" y="450" width="180" height="60" as="geometry" />
         </mxCell>
         <mxCell id="dim_date" value="Dim_Date í ½í³…&#xa;â€¢ DateID (PK)&#xa;â€¢ Day&#xa;â€¢ Month&#xa;â€¢ Year" style="rounded=1;shadow=1;fillColor=#0050ef;whiteSpace=wrap;fontSize=12;strokeColor=#001DBC;opacity=60;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="320" y="60" width="180" height="80" as="geometry" />
@@ -32,13 +32,13 @@
           <mxGeometry x="440" y="270" width="280" height="100" as="geometry" />
         </mxCell>
         <mxCell id="fact_commissions" value="Fact_Commissions í ½í²°&#xa;(Grain: 1 row per commission event per agent)&#xa;â€¢ CommID (PK)&#xa;â€¢ AgentID&#xa;â€¢ CommissionAmt" style="rounded=1;shadow=1;fillColor=#ffcd28;whiteSpace=wrap;fontSize=11;strokeColor=#d79b00;gradientColor=#ffa500;fontStyle=0" vertex="1" parent="1">
-          <mxGeometry x="700" y="440" width="260" height="80" as="geometry" />
+          <mxGeometry x="720" y="450" width="260" height="80" as="geometry" />
         </mxCell>
         <mxCell id="fact_clientactivity" value="Fact_ClientActivity í ½í³ž&#xa;(Grain: 1 row per client interaction per channel)&#xa;â€¢ ActivityID (PK)&#xa;â€¢ ClientID&#xa;â€¢ ChannelID" style="rounded=1;shadow=1;fillColor=#ffcd28;whiteSpace=wrap;fontSize=11;strokeColor=#d79b00;gradientColor=#ffa500;fontStyle=0" vertex="1" parent="1">
-          <mxGeometry x="425" y="450" width="260" height="80" as="geometry" />
+          <mxGeometry x="440" y="450" width="260" height="80" as="geometry" />
         </mxCell>
         <mxCell id="fact_policy" value="Fact_Policy í ½í·‚&#xa;(Grain: 1 row per policy snapshot)&#xa;â€¢ PolicyID (PK)&#xa;â€¢ EffectiveDate&#xa;â€¢ StatusID" style="rounded=1;shadow=1;fillColor=#ffcd28;whiteSpace=wrap;fontSize=11;strokeColor=#d79b00;gradientColor=#ffa500;fontStyle=0" vertex="1" parent="1">
-          <mxGeometry x="110" y="530" width="260" height="80" as="geometry" />
+          <mxGeometry x="140" y="540" width="260" height="80" as="geometry" />
         </mxCell>
         <mxCell id="a1" style="endArrow=block;html=1;" edge="1" parent="1" source="dim_agent" target="fact_sales">
           <mxGeometry relative="1" as="geometry" />
