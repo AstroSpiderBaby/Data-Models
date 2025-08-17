@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.1.0">
+  <diagram name="Page-1" id="6ICeJN0Sj9uHa36SZQ-j">
+    <mxGraphModel dx="57682" dy="20361" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2344" pageHeight="816" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="factCase" value="fact.Case&#xa;• CaseBK (PK)&#xa;• PlanID&#xa;• CurrentStatusID&#xa;• CreatedDateID ... ClosedDateID&#xa;• StatusAsOfDateID&#xa;• OwnerName/Phone/Email (primary)&#xa;• AgentName/HasActiveAppt&#xa;• OpenReqs/ClosedReqs/LastOrdered/LastReceived" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#fff2cc" vertex="1" parent="1">
+          <mxGeometry x="450" y="310" width="420" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="factStatus" value="fact.CaseStatusChange&#xa;• CaseStatusChangeID (PK)&#xa;• CaseBK&#xa;• StatusID&#xa;• ChangeDateID&#xa;• ChangeDateTime" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#fff2cc" vertex="1" parent="1">
+          <mxGeometry x="430" y="60" width="360" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dimPlan" value="dim.Plan&#xa;• PlanID (PK)&#xa;• CarrierID&#xa;• PlanName&#xa;• ProductLine&#xa;• PolicyType" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#d5e8d4" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dimStatus" value="dim.Status&#xa;• StatusID (PK)&#xa;• CaStatusCd/ScetypeCd&#xa;• ConformedStage&#xa;• StageOrder" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#d5e8d4" vertex="1" parent="1">
+          <mxGeometry x="940" y="50" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dimDate" value="dim.Date&#xa;• DateID (PK)&#xa;• Date/Year/Month/Day" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#d5e8d4" vertex="1" parent="1">
+          <mxGeometry x="70" y="40" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="stgOwner" value="stg.vw_case_owner_bridge&#xa;(ranked owners; primary surfaced on fact)" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#dae8fc" vertex="1" parent="1">
+          <mxGeometry x="970" y="310" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="stgAgent" value="stg.vw_case_assigned_agent&#xa;(+ stg.vw_agent_appointments)" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#dae8fc" vertex="1" parent="1">
+          <mxGeometry x="860" y="560" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="stgReq" value="stg.vw_case_requirements&#xa;(counts + last dates used on fact)" style="shape=swimlane;rounded=1;whiteSpace=wrap;horizontal=1;fillColor=#dae8fc" vertex="1" parent="1">
+          <mxGeometry x="180" y="560" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=block;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="factCase" target="dimPlan" />
+        <mxCell id="e2" style="endArrow=block;" edge="1" parent="1" source="factCase" target="dimStatus" />
+        <mxCell id="e3" value="Created/Submitted/Signed/Issued/Placed/Closed/StatusAsOf → DateID" style="endArrow=block;dashed=1;" edge="1" parent="1" source="factCase" target="dimDate" />
+        <mxCell id="e4" style="endArrow=block;" edge="1" parent="1" source="factStatus" target="dimStatus" />
+        <mxCell id="e5" value="ChangeDateID" style="endArrow=block;dashed=1;" edge="1" parent="1" source="factStatus" target="dimDate" />
+        <mxCell id="e6" value="Primary owner (rank=1) + contact" style="endArrow=block;dashed=1;" edge="1" parent="1" source="stgOwner" target="factCase" />
+        <mxCell id="e7" value="Assigned agent + HasActiveAppt" style="endArrow=block;dashed=1;" edge="1" parent="1" source="stgAgent" target="factCase" />
+        <mxCell id="e8" value="Open/Closed counts + last ordered/received" style="endArrow=block;dashed=1;" edge="1" parent="1" source="stgReq" target="factCase" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
